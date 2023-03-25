@@ -104,3 +104,41 @@ console.log(email === normalizedEmail);
 // Replacing Example
 
 const priceGB = '288,97£';
+// replace method example
+const priceUS = priceGB.replace('£', '$').replace(',', '.');
+console.log(priceUS);
+
+const announcement =
+  'All passengers come to boarding door 23. Boarding door 23!';
+// replaceAll method example
+console.log(announcement.replaceAll('door', 'gate'));
+
+// Example of Regex
+
+console.log(announcement.replace(/door/g, 'gate'));
+
+// Methods that return boolean value on String
+
+const plane1 = 'Airbus A320neo';
+console.log(plane1.includes('A320')); // true
+console.log(plane1.includes('Boeing')); // false
+console.log(plane1.startsWith('Air')); //true
+
+if (plane1.startsWith('Airbus') && plane1.endsWith('neo')) {
+  console.log('Part of the NEW Airbus family');
+} // prints the msg as the condition is true
+
+//Prcatice exercise
+
+const checkBaggage = function (items) {
+  const baggage = items.toLowerCase();
+  if (baggage.includes('knife') || baggage.includes('gun')) {
+    console.log('You are NOT allowed on board');
+  } else {
+    console.log('Welcome aboard!');
+  }
+};
+
+checkBaggage('I have a laptop, some Food and a pocket Knife'); // Not allowed
+checkBaggage('Socks and camera'); // Allowed
+checkBaggage('Get some snacks and a gun for protection'); // Not allowed
