@@ -142,3 +142,66 @@ const checkBaggage = function (items) {
 checkBaggage('I have a laptop, some Food and a pocket Knife'); // Not allowed
 checkBaggage('Socks and camera'); // Allowed
 checkBaggage('Get some snacks and a gun for protection'); // Not allowed
+
+// Working with Strings - Part 3
+
+// Powerful string method split, Join
+
+console.log('a+very+nice+string'.split('+'));
+// results in elements of new array
+
+console.log('Jonas Schmedtmann'.split(' '));
+
+const [firstName, lastName] = 'Jonas Schmedtmann'.split(' ');
+
+const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+
+console.log(newName);
+
+//Practice Exercise capitalize name
+
+const capitalizeName = function (name) {
+  const names = name.split(' ');
+  const namesUpper = [];
+
+  for (const n of names) {
+    // namesUpper.push(n[0].toUpperCase() + n.slice(1));
+
+    namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+  console.log(namesUpper.join(' '));
+};
+
+capitalizeName('jessica ann smith davis');
+capitalizeName('jonas schmedtmann');
+
+// Example to Padding a string
+
+const message = 'Go to gate 23!';
+console.log(message.padStart(25, '+').padEnd(30, '+'));
+console.log('Jonas'.padStart(10, '+').padEnd(25, '+'));
+
+// Real world example of Padding
+
+const maskCreditCard = function (number) {
+  const str = number + '';
+  const last = str.slice(-4);
+  return last.padStart(str.length, '*');
+};
+
+console.log(maskCreditCard(635241789654));
+
+console.log(maskCreditCard('7954513985401105634684'));
+
+// Simple method repeat()
+
+const message2 = 'Bad weather... All Departures Delayead... ';
+console.log(message2.repeat(5));
+
+const planesInLine = function (n) {
+  console.log(`There are ${n} planes in line ${'🛫'.repeat(n)}`);
+};
+
+planesInLine(5);
+planesInLine(3);
+planesInLine(12);
